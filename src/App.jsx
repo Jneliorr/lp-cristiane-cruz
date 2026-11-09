@@ -210,7 +210,7 @@ function About() {
       <div className="wrap about-layout">
         <div data-reveal>
           <Eyebrow number="01">O espaço</Eyebrow>
-          <h2>Beleza que respeita<br />a sua <em>essência.</em></h2>
+          <h2>Beleza que respeita<br />a sua essência.</h2>
         </div>
         <div className="about-copy" data-reveal>
           <p>O Espaço Cristiane Cruz reúne profissionais especializados em Itaboraí. Das mechas ao corte, cada atendimento é uma oportunidade de conversar sobre o seu cabelo e escolher um cuidado que combine com você.</p>
@@ -229,7 +229,7 @@ function Services() {
     <section className="section services" id="servicos">
       <div className="wrap">
         <div className="section-heading" data-reveal>
-          <div><Eyebrow number="02">Nossos serviços</Eyebrow><h2>Cuidados para<br /><em>cada fio.</em></h2></div>
+          <div><Eyebrow number="02">Nossos serviços</Eyebrow><h2>Cuidados para<br />cada fio.</h2></div>
           <p>Conheça as especialidades do salão e converse com a equipe sobre o seu próximo atendimento.</p>
         </div>
         <div className="service-layout">
@@ -313,7 +313,7 @@ function Results() {
     <section className="section results" id="resultados">
       <div className="wrap">
         <div className="section-heading" data-reveal>
-          <div><Eyebrow number="04">Resultados</Eyebrow><h2>Antes <em>e depois.</em></h2></div>
+          <div><Eyebrow number="04">Resultados</Eyebrow><h2>Antes e depois.</h2></div>
           <p>{comparisons.some(({ before, after }) => before && after) ? 'Deslize para comparar os frames e veja os vídeos originais no Instagram.' : 'Os comparadores estão prontos para receber os registros autorizados do salão.'}</p>
         </div>
         <div className="comparison-grid grid gap-5 md:grid-cols-2">
@@ -336,7 +336,7 @@ function Authority() {
         </div>
         <div data-reveal>
           <Eyebrow number="05">CEO · Embaixadora Internacional</Eyebrow>
-          <h2>Cristiane <em>Cruz.</em></h2>
+          <h2>Cristiane Cruz.</h2>
           <p className="authority-quote">“Te ensino a fazer mechas do zero”</p>
           <p>Além de liderar o Espaço Cristiane Cruz, Cristiane compartilha sua experiência com profissionais que querem aprender a fazer mechas.</p>
           <div className="country-heading"><Globe2 size={18} aria-hidden="true" /> Conexões internacionais</div>
@@ -349,20 +349,26 @@ function Authority() {
 }
 
 function Reviews() {
+  const hasReviews = reviews.length > 0
+
   return (
-    <section className="section reviews" id="avaliacoes">
+    <section className={`section reviews${hasReviews ? '' : ' section--compact'}`} id="avaliacoes">
       <div className="wrap">
         <div className="section-heading" data-reveal>
-          <div><Eyebrow number="06">Avaliações</Eyebrow><h2>Experiências <em>reais.</em></h2></div>
+          <div>
+            <Eyebrow number="06">Avaliações</Eyebrow>
+            <h2>Experiências reais.</h2>
+            {!hasReviews && <p className="section-note">Consulte as avaliações disponíveis no perfil do salão.</p>}
+          </div>
           <ExternalLink className="text-link" href={salon.maps}>Ver no Google Maps <ArrowUpRight size={17} aria-hidden="true" /></ExternalLink>
         </div>
-        <div className="masonry review-grid">
-          {reviews.length > 0 ? reviews.map(({ name, quote }) => (
-            <figure key={`${name}-${quote}`}><blockquote>{quote}</blockquote><figcaption>{name}</figcaption></figure>
-          )) : ['Atendimento', 'Mechas e iluminados', 'Experiência no salão'].map((topic) => (
-            <div className="review-placeholder" key={topic}><span aria-hidden="true">“</span><h3>{topic}</h3><p>Espaço reservado para avaliação real.</p></div>
-          ))}
-        </div>
+        {hasReviews && (
+          <div className="masonry review-grid">
+            {reviews.map(({ name, quote }) => (
+              <figure key={`${name}-${quote}`}><blockquote>{quote}</blockquote><figcaption>{name}</figcaption></figure>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   )
@@ -399,24 +405,33 @@ function Modal({ title, children, onClose, className = '' }) {
 
 function Gallery() {
   const [selected, setSelected] = useState(null)
+  const media = gallery.filter((item) => item.src || item.link)
+  const compact = media.length < 3
+
   return (
-    <section className="section gallery dark" id="galeria">
+    <section className={`section gallery dark${compact ? ' section--compact' : ''}`} id="galeria">
       <div className="wrap">
         <div className="section-heading" data-reveal>
-          <div><Eyebrow number="07">Galeria</Eyebrow><h2>Por dentro <em>do espaço.</em></h2></div>
+          <div>
+            <Eyebrow number="07">Galeria</Eyebrow>
+            <h2>Por dentro do espaço.</h2>
+            {compact && <p className="section-note">Acompanhe outros registros no Instagram.</p>}
+          </div>
           <ExternalLink className="text-link" href={salon.instagram}><Instagram size={17} aria-hidden="true" /> @espaco_cristianecruz <ArrowUpRight size={15} aria-hidden="true" /></ExternalLink>
         </div>
-        <div className="masonry gallery-grid">
-          {gallery.map((item, index) => (
-            <button className="gallery-tile" key={item.title} type="button" onClick={() => setSelected(item)}>
-              {item.type === 'image' && item.src && <img src={item.src} alt="" loading="lazy" />}
-              {item.type === 'video' && item.poster && <img src={item.poster} alt="" loading="lazy" />}
-              <span className="tile-index">0{index + 1}</span>
-              <span className="tile-icon" aria-hidden="true">{item.type === 'video' ? <CirclePlay /> : <Camera />}</span>
-              <span className="tile-label"><span>{item.title}{!item.src && <small>{item.link ? 'Publicação no Instagram' : 'Mídia a incluir'}</small>}</span><ArrowUpRight size={17} aria-hidden="true" /></span>
-            </button>
-          ))}
-        </div>
+        {media.length > 0 && (
+          <div className="masonry gallery-grid">
+            {media.map((item, index) => (
+              <button className="gallery-tile" key={item.title} type="button" onClick={() => setSelected(item)}>
+                {item.type === 'image' && item.src && <img src={item.src} alt="" loading="lazy" />}
+                {item.type === 'video' && item.poster && <img src={item.poster} alt="" loading="lazy" />}
+                <span className="tile-index" aria-hidden="true">0{index + 1}</span>
+                <span className="tile-icon" aria-hidden="true">{item.type === 'video' ? <CirclePlay /> : <Camera />}</span>
+                <span className="tile-label"><span>{item.title}{!item.src && <small>Publicação no Instagram</small>}</span><ArrowUpRight size={17} aria-hidden="true" /></span>
+              </button>
+            ))}
+          </div>
+        )}
       </div>
       {selected && (
         <Modal title={selected.title} className="lightbox" onClose={() => setSelected(null)}>
@@ -427,7 +442,6 @@ function Gallery() {
               {selected.captions && <track kind="captions" src={selected.captions} srcLang="pt-BR" label="Português" default />}
             </video>
           )}
-          {!selected.src && !selected.link && <p>Espaço reservado para mídia autorizada do salão.</p>}
           {selected.link && <ExternalLink className="text-link" href={selected.link}>Ver publicação no Instagram <ArrowUpRight size={17} aria-hidden="true" /></ExternalLink>}
         </Modal>
       )}
@@ -441,7 +455,7 @@ function Location() {
       <div className="wrap split-layout">
         <div data-reveal>
           <Eyebrow number="08">Onde encontrar</Eyebrow>
-          <h2>Seu próximo<br />encontro <em>é aqui.</em></h2>
+          <h2>Seu próximo<br />encontro é aqui.</h2>
           <address>
             <strong>{salon.name}</strong>
             <span>{salon.street}<br />Itaboraí - RJ, 24800-105, Brasil</span>
