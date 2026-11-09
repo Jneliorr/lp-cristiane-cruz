@@ -23,7 +23,7 @@ A composição parte da fotografia de campanha de beleza, das curvas de um arco 
 
 ## Conteúdo e imagens
 
-- Logo, retrato e publicação da agenda vieram dos links do Instagram fornecidos no briefing. A publicação datada aparece como material de galeria.
+- A abertura usa a [foto de perfil de Cristiane](https://www.instagram.com/cristianecruzrp/) em sua resolução original de 150 × 150 px, com uma máscara SVG para remover o fundo na página. A seção de autoridade usa um recorte da [publicação indicada](https://www.instagram.com/p/DI46ylssY5f/). A galeria mantém o retrato e a peça de agenda fornecidos no briefing.
 - A [imagem-conceito do hero](public/media/hero-conceito.jpg) registra a composição final. A fotografia de cabelo na seção de especialidade é ilustrativa. Os pares de antes e depois, as avaliações, as fotos de procedimentos e os vídeos permanecem sinalizados até a inclusão de material autorizado.
 - História biográfica e formação acadêmica podem ser incluídas quando houver informação confirmada.
 - O mapa consulta o endereço do briefing. O botão de trajeto abre o link do Google Maps fornecido.

@@ -9,6 +9,7 @@ export const salon = {
   message: 'Olá! Conheci o Espaço Cristiane Cruz pelo site e gostaria de saber mais sobre os serviços e agendar um horário.',
   instagram: 'https://www.instagram.com/espaco_cristianecruz/',
   portraitPost: 'https://www.instagram.com/p/Dc7I69Emfii/?img_index=1',
+  authorityPost: 'https://www.instagram.com/p/DI46ylssY5f/',
   servicesPost: 'https://www.instagram.com/p/DfRy34vFRP3/?img_index=1',
   logoPost: 'https://www.instagram.com/p/CzT-lPCOTK-/',
   maps: 'https://maps.app.goo.gl/pGJ5wCTpxmcQcySE8',
@@ -19,7 +20,8 @@ export const salon = {
 export const officialMedia = {
   logo: '/media/logo-cristiane-cruz.png',
   monogram: '/media/monograma-cristiane-cruz.png',
-  portrait: '/media/cristiane-cruz.webp',
+  heroPortrait: '/media/cristiane-cruz-perfil.jpg',
+  authorityPortrait: '/media/cristiane-cruz-autoridade.webp',
   services: null,
 }
 

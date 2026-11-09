@@ -185,9 +185,9 @@ function Hero() {
         <div className="hero-art" ref={art}>
           <img className="hero-watermark" src={officialMedia.monogram} alt="" width="300" height="362" />
           <div className="hero-arc" aria-hidden="true" />
-          {officialMedia.portrait ? (
+          {officialMedia.heroPortrait ? (
             <figure className="hero-photo hero-portrait">
-              <img src={officialMedia.portrait} alt="Cristiane Cruz, CEO do Espaço Cristiane Cruz" width="780" height="780" fetchPriority="high" />
+              <img src={officialMedia.heroPortrait} alt="Cristiane Cruz, CEO do Espaço Cristiane Cruz" width="150" height="150" fetchPriority="high" />
               <figcaption>Cristiane Cruz <span>· CEO</span></figcaption>
             </figure>
           ) : <EditorialPhoto className="hero-photo" hero />}
@@ -321,10 +321,10 @@ function Authority() {
     <section className="section authority" id="autoridade">
       <div className="wrap authority-layout">
         <div className="authority-mark" data-reveal>
-          {officialMedia.portrait
-            ? <img className="authority-portrait" src={officialMedia.portrait} alt="Cristiane Cruz" loading="lazy" />
+          {officialMedia.authorityPortrait
+            ? <img className="authority-portrait" src={officialMedia.authorityPortrait} alt="Cristiane Cruz de blazer branco no salão" width="704" height="800" loading="lazy" />
             : <img src={officialMedia.monogram} alt="" width="300" height="362" loading="lazy" />}
-          <ExternalLink className="text-link" href={salon.portraitPost}>Cristiane no Instagram <ArrowUpRight size={16} aria-hidden="true" /></ExternalLink>
+          <ExternalLink className="text-link" href={salon.authorityPost}>Ver publicação no Instagram <ArrowUpRight size={16} aria-hidden="true" /></ExternalLink>
         </div>
         <div data-reveal>
           <Eyebrow number="05">CEO · Embaixadora Internacional</Eyebrow>
