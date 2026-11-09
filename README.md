@@ -23,8 +23,9 @@ A composição parte da fotografia de campanha de beleza, das curvas de um arco 
 
 ## Conteúdo e imagens
 
-- A abertura usa a [foto de perfil de Cristiane](https://www.instagram.com/cristianecruzrp/) em sua resolução original de 150 × 150 px, com uma máscara SVG para remover o fundo na página. A seção de autoridade usa um recorte da [publicação indicada](https://www.instagram.com/p/DI46ylssY5f/). A galeria mantém o retrato e a peça de agenda fornecidos no briefing.
-- A [imagem-conceito do hero](public/media/hero-conceito.jpg) registra a composição final. A fotografia de cabelo na seção de especialidade é ilustrativa. Os pares de antes e depois, as avaliações, as fotos de procedimentos e os vídeos permanecem sinalizados até a inclusão de material autorizado.
+- A abertura usa uma restauração assistida por IA da [miniatura original de 150 × 150 px](public/media/cristiane-cruz-perfil.jpg), obtida do [perfil de Cristiane](https://www.instagram.com/cristianecruzrp/). A seção de autoridade usa um recorte da [publicação indicada](https://www.instagram.com/p/DI46ylssY5f/).
+- A foto da imersão em Serviços foi anexada ao comentário do site. Os comparadores usam frames do [reel de iluminados caramelo](https://www.instagram.com/reel/DfGPQHVupXR/) nos instantes 0,75 s e 3,70 s e do [reel de alisamento](https://www.instagram.com/reel/DdrH5PXuB3G/) nos instantes 5,02 s e 46,70 s.
+- A [imagem-conceito do hero](public/media/hero-conceito.jpg) registra a composição final. A fotografia de cabelo na seção de especialidade é ilustrativa. As avaliações, as fotos de procedimentos e os vídeos da galeria permanecem sinalizados até a inclusão de material autorizado.
 - História biográfica e formação acadêmica podem ser incluídas quando houver informação confirmada.
 - O mapa consulta o endereço do briefing. O botão de trajeto abre o link do Google Maps fornecido.
 
@@ -42,5 +43,9 @@ Use case: background-extraction. Edit the supplied actual portrait of Cristiane 
 **Recorte da marca**
 
 Clean flat two-color logo asset on true transparent background. Precisely extract the original monogram and lettering from the supplied green logo image: the stylized intertwined C and E, the exact thin original fashion serif text CRISTIANE CRUZ, and the exact small gold line ESPAÇO DE BELEZA. Use solid matte gold and warm off-white matching the source, no shading or decoration. The removed green field and all glyph counters must be completely zero-alpha, with only a normal one-pixel antialiased edge. Strictly avoid fringe, colored specks, outlines, halos, drop shadows, embossing and extraneous pixels. Do not stylistically reinterpret the mark. Tight transparent padding around the source artwork. Production-quality clean flat PNG brand graphic.
+
+**Restauração da foto de perfil**
+
+Use case: identity-preserve background extraction and photo restoration. Image 1 is the low-resolution ORIGINAL edit target: Cristiane Cruz standing by the tall black chair in a black leather blazer. The final image must be that exact photograph, at that same moment, silhouette, stance, camera angle, sideward gaze, expression, face direction, outfit, hands, chair and mid-calf crop. Image 2 is a sharper photo of THE SAME REAL PERSON for facial identity reference only; never borrow its makeup, smile, head tilt, clothes, background, hands or pose. Restore clarity and reduce pixel blur in image 1 while keeping the exact real facial structure of Cristiane, with especially restrained and natural detail and no glamour retouch. Match the original facial orientation precisely: she looks off camera slightly to the viewer's left, her lips rest softly with a slight asymmetric expression, and her head is tilted a little. Keep the original short dark side-parted bob. Remove the gray backdrop completely, including the small triangle under the raised arm and the space between the chair legs. Transparent alpha PNG, square composition at the same original scale and same exact framing. No white or gray fringe, no backdrop, no text, no changes to pose, no styling.
 
 </details>

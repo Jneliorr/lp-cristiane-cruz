@@ -187,7 +187,7 @@ function Hero() {
           <div className="hero-arc" aria-hidden="true" />
           {officialMedia.heroPortrait ? (
             <figure className="hero-photo hero-portrait">
-              <img src={officialMedia.heroPortrait} alt="Cristiane Cruz, CEO do Espaço Cristiane Cruz" width="150" height="150" fetchPriority="high" />
+              <img src={officialMedia.heroPortrait} alt="Cristiane Cruz, CEO do Espaço Cristiane Cruz" width="780" height="780" fetchPriority="high" />
               <figcaption>Cristiane Cruz <span>· CEO</span></figcaption>
             </figure>
           ) : <EditorialPhoto className="hero-photo" hero />}
@@ -234,7 +234,10 @@ function Services() {
         </div>
         <div className="service-layout">
           {officialMedia.services ? (
-            <figure className="service-art" data-reveal><img src={officialMedia.services} alt="Serviço no Espaço Cristiane Cruz" loading="lazy" /></figure>
+            <figure className="service-art service-photo" data-reveal>
+              <img src={officialMedia.services} alt="Cristiane Cruz com o grupo da imersão e uma modelo com mechas loiras" width="610" height="432" loading="lazy" />
+              <figcaption>Imersão em mechas</figcaption>
+            </figure>
           ) : (
             <div className="service-art service-placeholder" data-reveal>
               <span className="eyebrow">ESPAÇO CRISTIANE CRUZ</span>
@@ -279,7 +282,7 @@ function Specialty() {
   )
 }
 
-function Comparison({ title, before, after }) {
+function Comparison({ title, before, after, source }) {
   const [position, setPosition] = useState(50)
   return (
     <figure className="comparison">
@@ -295,7 +298,12 @@ function Comparison({ title, before, after }) {
         <div className="comparison-handle" aria-hidden="true"><span><ArrowLeftRight size={18} /></span></div>
         <input type="range" min="0" max="100" value={position} aria-label={`Comparar antes e depois de ${title}`} aria-valuetext={`${position}% da imagem de antes`} onChange={(event) => setPosition(Number(event.target.value))} />
       </div>
-      <figcaption>{title}<span>{before && after ? 'Antes e depois' : 'Aguardando fotos autorizadas'}</span></figcaption>
+      <figcaption>
+        {title}
+        {source
+          ? <ExternalLink className="text-link" href={source} aria-label={`Ver reel original de ${title}`}>Ver reel original <ArrowUpRight size={15} aria-hidden="true" /></ExternalLink>
+          : <span>{before && after ? 'Antes e depois' : 'Aguardando fotos autorizadas'}</span>}
+      </figcaption>
     </figure>
   )
 }
@@ -306,7 +314,7 @@ function Results() {
       <div className="wrap">
         <div className="section-heading" data-reveal>
           <div><Eyebrow number="04">Resultados</Eyebrow><h2>Antes <em>e depois.</em></h2></div>
-          <p>{comparisons.some(({ before, after }) => before && after) ? 'Deslize para comparar as imagens.' : 'Os comparadores estão prontos para receber os registros autorizados do salão.'}</p>
+          <p>{comparisons.some(({ before, after }) => before && after) ? 'Deslize para comparar os frames e veja os vídeos originais no Instagram.' : 'Os comparadores estão prontos para receber os registros autorizados do salão.'}</p>
         </div>
         <div className="comparison-grid grid gap-5 md:grid-cols-2">
           {comparisons.map((comparison) => <Comparison key={comparison.title} {...comparison} />)}

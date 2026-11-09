@@ -20,9 +20,9 @@ export const salon = {
 export const officialMedia = {
   logo: '/media/logo-cristiane-cruz.png',
   monogram: '/media/monograma-cristiane-cruz.png',
-  heroPortrait: '/media/cristiane-cruz-perfil.jpg',
+  heroPortrait: '/media/cristiane-cruz-perfil-restaurado.webp',
   authorityPortrait: '/media/cristiane-cruz-autoridade.webp',
-  services: null,
+  services: '/media/equipe-espaco-cristiane-cruz.webp',
 }
 
 export const navigation = [
@@ -44,8 +44,18 @@ export const services = [
 export const countries = ['Brasil', 'França', 'Argélia', 'Argentina', 'Paraguai']
 
 export const comparisons = [
-  { title: 'Mechas', before: null, after: null },
-  { title: 'Iluminados', before: null, after: null },
+  {
+    title: 'Iluminados caramelo',
+    before: '/media/iluminados-caramelo-antes.webp',
+    after: '/media/iluminados-caramelo-depois.webp',
+    source: 'https://www.instagram.com/reel/DfGPQHVupXR/',
+  },
+  {
+    title: 'Alisamento',
+    before: '/media/alisamento-antes.webp',
+    after: '/media/alisamento-depois.webp',
+    source: 'https://www.instagram.com/reel/DdrH5PXuB3G/',
+  },
 ]
 
 export const reviews = []
@@ -54,7 +64,7 @@ export const gallery = [
   { title: 'O espaço', type: 'image', src: null },
   { title: 'Cristiane Cruz', type: 'image', src: '/media/cristiane-cruz-original.jpg', link: salon.portraitPost },
   { title: 'Publicação do salão', type: 'image', src: '/media/publicacao-agenda.jpg', alt: 'Publicação sobre a agenda de dezembro de 2026 com a lista de serviços do salão', link: salon.servicesPost },
-  { title: 'Procedimentos', type: 'image', src: officialMedia.services },
+  { title: 'Procedimentos', type: 'image', src: null },
   { title: 'Bastidores', type: 'video', src: null },
   { title: 'Resultados', type: 'image', src: null },
   { title: 'A equipe', type: 'image', src: null },
